@@ -10,7 +10,7 @@ def index():
 	return render_template('index.html')
 
 @app.route('/news/')
-@app.route('/news/<id>',)
+@app.route('/news/<id>')
 def news(id = None):
 	allnews = News.query.all()
 	allnews.reverse()

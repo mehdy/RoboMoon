@@ -1,1 +1,4 @@
 *.pyc
+robo/
+db_repository/
+app.db

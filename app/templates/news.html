@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
+	{% for news in allnews %}
+    	<div class="row featurette">
+	        <div class="col-md-7">
+	          <h2 class="featurette-heading">{{ news.title }}</h2>
+	          <p class="lead">{{ news.description }}</p>
+	        </div>
+    	</div>
+        <hr class="featurette-divider">
+    {% endfor %}
 {% endblock %}

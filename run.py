@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!robo/bin/python
 from app import app
 
 app.run(debug = True)

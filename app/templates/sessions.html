@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
+	{% for session in sessions %}
+    	<div class="row featurette">
+	        <div class="col-md-11">
+	          <h2 class="featurette-heading">{{ session.title }}</h2>
+	          <p class="lead">{{ session.description }}</p>
+	        </div>
+    	</div>
+        <hr class="featurette-divider">
+    {% endfor %}
 {% endblock %}

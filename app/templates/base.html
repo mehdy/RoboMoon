@@ -36,7 +36,7 @@
     <div id="RoboSlide" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="item active">
-          <div style="background-color: white;height: 340px;width: 100%;"></div>
+          <div style="background-color: white;height: 220px;width: 100%;"></div>
           <img alt="First slide" src="/static/img/robomoon_logo.svg">
         </div>
       </div>
@@ -45,27 +45,21 @@
     <!-- NAVBAR
     ================================================== -->
     
-    <div id="home" class="navbar-wrapper">
+    <div id="navbar" class="navbar-wrapper">
       <div class="container">
 
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
               <a class="navbar-brand" href="#">RoboMoon</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/#home">Home</a></li>
-                <li><a href="/news/#home">News</a></li>
-                <li><a href="/sessions/#home">Sessions</a></li>
-                <li><a href="/codes/#home">Codes</a></li>
-                <li><a href="/about/#home">About</a></li>
+                <li {% if ho %} class="active" {% endif %}><a href="/#">Home</a></li>
+                <li {% if ne %} class="active" {% endif %}><a href="/news/#">News</a></li>
+                <li {% if se %} class="active" {% endif %}><a href="/sessions/#">Sessions</a></li>
+                <li {% if co %} class="active" {% endif %}><a href="/codes/#">Codes</a></li>
+                <li {% if ab %} class="active" {% endif %}><a href="/about/#">About</a></li>
               </ul>
             </div>
           </div>
@@ -78,8 +72,8 @@
     {% endblock %}
           <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="/#">Back to top</a></p>
-        <p>© 2014 Company, Inc. · <a href="/#">Privacy</a> · <a href="/#">Terms</a></p>
+        <p class="pull-right"><a href="#home">Back to top</a></p>
+        <p>CopyLeft 2013-2014 RoboMoon · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->

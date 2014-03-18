@@ -1,1 +1,19 @@
 {% extends "admin.html" %}
+{% block content %}
+    <div class="col-sm-3 col-md-3 list">
+        <h2 class="sub-header">Sessions list</h2>
+        <ul class="nav nav-sidebar">
+        	{% for session in sessions %}
+        	<li><a href="/admin/session/{{ session.id }}">{{ session.title }}</a></li>
+        	{% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-8 col-md-8 add">
+        <h2 class="sub-header">Add News</h2>
+        <form method="post" name="add-session" class="form" role="form">
+        	<input type="title" class="form-control" name="title" placeholder="Title" required="True" autofocus="True"><br>
+        	<textarea class="textarea" name="description" placeholder="Description"></textarea><br>
+        	<button style="width: 10%;" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
+        </form>
+    </div>
+{% endblock %}

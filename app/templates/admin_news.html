@@ -11,8 +11,9 @@
     <div class="col-sm-8 col-md-8 add">
         <h2 class="sub-header">Add News</h2>
         <form method="post" name="add-news" class="form" role="form">
+            {{ form.hidden_tag() }}
             <input type="title" class="form-control" name="title" placeholder="Title" required="True" autofocus="True"><br>
-            <textarea class="textarea" name="description" placeholder="Description"></textarea><br>
+            <textarea class="textarea" name="description" placeholder="Description" required="True"></textarea><br>
             <button style="width: 10%;" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
         </form>
     </div>

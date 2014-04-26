@@ -1,3 +1,16 @@
 {% extends "admin.html" %}
 {% block content %}
+    <div class="col-sm-8 col-md-8 edit">
+        <h2 class="sub-header">Edit your information</h2>
+        <form method="post" name="edit-profile" class="form" role="form">
+            {{ form.hidden_tag() }}
+            <input type="username" class="form-control" name="username" placeholder="{{ user.username }} (leave it if you don't want to change it)"><br>
+            <input type="email" class="form-control" name="email" placeholder="{{ user.email }} (leave it if you don't want to change it)"><br>
+        	<input type="password" class="form-control" name="password" placeholder="Password (leave it if you don't want to change it)"><br>
+            <input type="password" class="form-control" name="confirm" placeholder="Confirm your password (leave it if you don't want to change it)"><br>
+            <input type="website" class="form-control" name="website" placeholder="{% if user.website %}{{ user.website }}{% else %} your website URL (http://example.com) (leave it if you don't want to change it){% endif %}"><br>
+            <textarea class="textarea" name="bio" placeholder="write about yourself in 256 charachters... (leave it if you don't want to change it)"></textarea><br>
+            <button style="width: 10%;" class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        </form>
+    </div>
 {% endblock %}

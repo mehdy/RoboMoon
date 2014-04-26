@@ -16,10 +16,11 @@
           <p><a class="btn btn-default" href="/about/danial/" role="button">View details »</a></p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3">
-          <img class="img-circle" alt="140x140" src="http://www.gravatar.com/avatar/479695e9461b3115f5816071cfb07a01?mm&s=140" style="width: 140px; height: 140px;">
-          <h2>Mehdy</h2>
-          <p>Mehdy's bio goes here</p>
-          <p><a class="btn btn-default" href="/about/mehdy/" role="button">View details »</a></p>
+          {% for user in users %}
+          <img class="img-circle" alt="140x140" src="{{ user.avatar(140) }}" style="width: 140px; height: 140px;">
+          <h2>{{ user.username }}</h2>
+          <p><a class="btn btn-default" href="/about/{{ user.username }}/" role="button">View details »</a></p>
+          {% endfor %}
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3">
           <img class="img-circle" alt="140x140" src="http://www.gravatar.com/avatar/b30699d4d91499a9739fc8b22569b975?mm&s=140" style="width: 140px; height: 140px;">
@@ -36,5 +37,15 @@
       </div><!-- /.row -->
 
       <hr class="featurette-divider">
+
+      {% if user %}
+      <div class="user">
+        <img alt="200x200" src="{{ user.avatar(200) }}" style="width: 200px; height: 200px;">
+        <p>{{ user.username }}</p><br>
+        <a href="mailto:{{ user.email }}"><p>{{ user.email }}</p></a><br>
+        <a href="{{ user.website }}"><p>{{ user.website }}</p></a><br>
+        <p>{{ user.bio }}</p><br>
+      </div>
+      {% endif %}
 
 {% endblock %}

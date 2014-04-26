@@ -64,7 +64,12 @@ body {
   background-repeat: no-repeat;
 }
 
-
+/* My style
+-------------------------------------------------- */
+.user > img{
+  float: left;
+  margin-right: 10px;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -153,6 +158,6 @@ body {
 
 @media (min-width: 992px) {
   .featurette-heading {
-    margin-top: 120px;
+    /*margin-top: 120px;*/
   }
 }

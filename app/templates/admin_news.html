@@ -4,7 +4,12 @@
         <h2 class="sub-header">News list</h2>
         <ul class="nav nav-sidebar">
         	{% for news in allnews %}
-        	<li><a href="/admin/news/{{ news.id }}">{{ news.title }}</a></li>
+        	<li>
+                <form method="post" action="/admin/news/{{ news.id }}" name="del-news" class="form" role="form">
+                <button class="btn btn-lg btn-primary btn-block" type="submit" method="post">X</button>
+                </form>
+                <a style="margin-right: 30px;" href="/admin/news/{{ news.id }}">{{ news.title }}</a>
+            </li>
         	{% endfor %}
         </ul>
     </div>
@@ -12,8 +17,8 @@
         <h2 class="sub-header">Add News</h2>
         <form method="post" name="add-news" class="form" role="form">
             {{ form.hidden_tag() }}
-            <input type="title" class="form-control" name="title" placeholder="Title" required="True" autofocus="True"><br>
-            <textarea class="textarea" name="description" placeholder="Description" required="True"></textarea><br>
+            <input type="title" class="form-control" name="title" placeholder="Title" required="True" autofocus="True" value="{% if form.title.data %}{{ form.title.data }}{% endif %}"><br>
+            <textarea class="textarea" name="description" placeholder="Description" required="True">{% if form.description.data %}{{ form.description.data }}{% endif %}</textarea><br>
             <button style="width: 10%;" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
         </form>
     </div>

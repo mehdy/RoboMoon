@@ -66,6 +66,10 @@ body {
 
 /* My style
 -------------------------------------------------- */
+.user{
+  margin-left: 10px;
+}
+
 .user > img{
   float: left;
   margin-right: 10px;

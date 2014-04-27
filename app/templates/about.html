@@ -3,37 +3,13 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
+        {% for user in users %}
         <div class="col-lg-3">
-          <img class="img-circle" alt="140x140" src="http://www.gravatar.com/avatar/00ed84b18bacb6970b774f177a47d206?mm&s=140" style="width: 140px; height: 140px;">
-          <h2>Reza</h2>
-          <p>MohammadReza's bio goes here</p>
-          <p><a class="btn btn-default" href="/about/reza/" role="button">View details »</a></p>
-        </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-          <img class="img-circle" alt="140x140" src="http://www.gravatar.com/avatar/b70d72e0d7d415cedf793a65a89f37bf?mm&s=140" style="width: 140px; height: 140px;">
-          <h2>Danial</h2>
-          <p>Danial's bio goes here</p>
-          <p><a class="btn btn-default" href="/about/danial/" role="button">View details »</a></p>
-        </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-          {% for user in users %}
           <img class="img-circle" alt="140x140" src="{{ user.avatar(140) }}" style="width: 140px; height: 140px;">
           <h2>{{ user.username }}</h2>
           <p><a class="btn btn-default" href="/about/{{ user.username }}/" role="button">View details »</a></p>
-          {% endfor %}
         </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-          <img class="img-circle" alt="140x140" src="http://www.gravatar.com/avatar/b30699d4d91499a9739fc8b22569b975?mm&s=140" style="width: 140px; height: 140px;">
-          <h2>Ata</h2>
-          <p>Ata's bio goes here</p>
-          <p><a class="btn btn-default" href="/about/ata/" role="button">View details »</a></p>
-        </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-          <img class="img-circle" alt="140x140" src="http://www.gravatar.com/avatar/71858c3eec62aecb2045c003a99224e2?mm&s=140" style="width: 140px; height: 140px;">
-          <h2>Samane</h2>
-          <p>Samane's bio goes here</p>
-          <p><a class="btn btn-default" href="/about/samane/" role="button">View details »</a></p>
-        </div><!-- /.col-lg-3 -->
+        {% endfor %}
       </div><!-- /.row -->
 
       <hr class="featurette-divider">
@@ -41,11 +17,13 @@
       {% if user %}
       <div class="user">
         <img alt="200x200" src="{{ user.avatar(200) }}" style="width: 200px; height: 200px;">
-        <p>{{ user.username }}</p><br>
+        <h2>{{ user.username }}</h2><br>
         <a href="mailto:{{ user.email }}"><p>{{ user.email }}</p></a><br>
         <a href="{{ user.website }}"><p>{{ user.website }}</p></a><br>
         <p>{{ user.bio }}</p><br>
       </div>
       {% endif %}
+
+      <hr class="featurette-divider">
 
 {% endblock %}

@@ -76,7 +76,12 @@ body {
   color: #fff;
   background-color: #000;
 }
-
+.nav-sidebar > li > form > button {
+  width: 20px;
+  padding: 0;
+  margin: 7px 5px 0 0;
+  float: right;
+}
 
 /*
  * Main content

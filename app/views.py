@@ -1,5 +1,5 @@
 from flask.ext.login import login_user, logout_user, current_user, login_required
-from forms import LoginForm, AddSessionForm, AddNewsForm, EditProfileForm
+from forms import LoginForm, AddSessionForm, AddNewsForm, EditProfileForm, AddUserForm
 from flask import render_template, redirect, url_for, request, g
 from models import User, Session, News
 from datetime import datetime
@@ -80,18 +80,19 @@ def admin():
 	return render_template('admin.html', title = 'Dashboard', da = 'active')
 
 @app.route('/admin/sessions/', methods = ['GET', 'POST'])
-@app.route('/admin/sessions/<id>', methods = ['GET', 'POST', 'DELETE'])
+@app.route('/admin/sessions/<id>', methods = ['GET', 'POST'])
 @login_required
 def admin_sessions(id = None):
-	if request.method == 'DELETE' and id is int:
-		db.session.delete(Session.query.get(id))
+	if request.method == 'POST' and id and not request.form.values():
+		db.session.delete(Session.query.get(int(id)))
 		db.session.commit()
+		return redirect('/admin/sessions/')
 	form = AddSessionForm(request.form)
-	if request.method == 'GET' and id is int:
+	if request.method == 'GET' and id:
 		session = Session.query.get(int(id))
 		form.title.data = session.title
 		form.description.data = session.description
-	if request.method == 'POST' and id is int and form.validate_on_submit():
+	if request.method == 'POST' and id and form.validate_on_submit():
 		session = Session.query.get(int(id))
 		session.title = form.title.data
 		session.description = form.description.data
@@ -111,18 +112,19 @@ def admin_sessions(id = None):
 	return render_template('admin_sessions.html', form = form, sessions = sessions, id = id, title = 'Sessions Records', se = 'active')
 
 @app.route('/admin/news/', methods = ['GET', 'POST'])
-@app.route('/admin/news/<id>', methods = ['GET', 'POST', 'DELETE'])
+@app.route('/admin/news/<id>', methods = ['GET', 'POST'])
 @login_required
 def admin_news(id = None):
-	if request.method == 'DELETE' and id is int:
-		db.session.delete(News.query.get(id))
+	if request.method == 'POST' and id and not request.form.values():
+		db.session.delete(News.query.get(int(id)))
 		db.session.commit()
+		return redirect('/admin/news/')
 	form = AddNewsForm(request.form)
-	if request.method == 'GET' and id is int:
+	if request.method == 'GET' and id:
 		news = News.query.get(int(id))
 		form.title.data = news.title
 		form.description.data = news.description
-	if request.method == 'POST' and id is int and form.validate_on_submit():
+	if request.method == 'POST' and id and form.validate_on_submit():
 		news = News.query.get(int(id))
 		news.title = form.title.data
 		news.description = form.description.data
@@ -144,7 +146,7 @@ def admin_news(id = None):
 @app.route('/admin/codes/', methods = ['GET', 'POST'])
 @login_required
 def admin_codes():
-	#Here needs to add code
+	#Here needs to add the code section
 	return render_template('admin_codes.html', title = 'codes', co = 'active')
 
 @app.route('/admin/profile/', methods = ['GET', 'POST'])
@@ -168,5 +170,17 @@ def admin_users():
 			user.bio = form.bio.data
 		db.session.add(user)
 		db.session.commit()
-		#Do the verfication and change the data
 	return render_template('admin_profile.html', form = form, user = g.user, title = 'Profile', po = 'active')
+
+@app.route('/admin/user/', methods = ['GET', 'POST'])
+@login_required
+def admin_user():
+	form = AddUserForm(request.form)
+	if request.method == 'POST' and form.username.data and form.email.data and form.password.data and form.confirm.data and form.password.data == form.confirm.data:
+		user = User(
+			username = form.username.data,
+			email = form.email.data,
+			password = form.password.data)
+		db.session.add(user)
+		db.session.commit()
+	return render_template('admin_user.html', form = form, title = 'codes', us = 'active')

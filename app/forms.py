@@ -23,3 +23,9 @@ class EditProfileForm(Form):
 	email = TextField('email', validators = [Required(), Length(min = 4, max = 100), email])
 	website = TextField('website', validators = [Length(max = 50)])
 	bio = description = TextAreaField('bio', validators = [Length(max = 256)])
+
+class AddUserForm(Form):
+	username = TextField('username', validators = [Required(), Length(max = 50)])
+	password = PasswordField('password', validators = [Required(), Length(min =8, max = 64)])
+	confirm = PasswordField('confirm', validators = [Required(), Length(min =8, max = 64)])
+	email = TextField('email', validators = [Required(), Length(min = 4, max = 100), email])

@@ -1,0 +1,14 @@
+{% extends "admin.html" %}
+{% block content %}
+    <div class="col-sm-8 col-md-8 edit">
+        <h2 class="sub-header">Edit your information</h2>
+        <form method="post" name="create-user" class="form" role="form">
+            {{ form.hidden_tag() }}
+            <input type="username" class="form-control" name="username" placeholder="Username" required="True" autofocus="True"><br>
+            <input type="email" class="form-control" name="email" placeholder="E-mail Address" required="True" autofocus="True"><br>
+        	<input type="password" class="form-control" name="password" placeholder="Password" required="True" autofocus="True"><br>
+            <input type="password" class="form-control" name="confirm" placeholder="Confirm your password" required="True" autofocus="True"><br>
+            <button style="width: 10%;" class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}

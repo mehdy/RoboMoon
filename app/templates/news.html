@@ -4,8 +4,7 @@
     	<div class="row featurette">
 	        <div class="col-md-11">
 	          <h2 class="featurette-heading">{{ news.title }}</h2>
-	          <hr class="featurette-divider">
-	          	<p>Modified on <date>{{ news.modified.ctime() }}</date> by {{ news.user_id }}</p>
+		  <p>Modified on <date>{{ news.modified.ctime() }}</date> by <a href="/about/{{ user.query.get(news.user_id).username }}">{{ user.query.get(news.user_id).username }}</a></p>
 	          <hr class="featurette-divider">
 	          <p class="lead">{{ news.description }}</p>
 	        </div>

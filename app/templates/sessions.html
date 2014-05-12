@@ -4,6 +4,7 @@
     	<div class="row featurette">
 	        <div class="col-md-11">
 	          <h2 class="featurette-heading">{{ session.title }}</h2>
+		  <p>Modified on /<date>{{ session.modified.ctime() }}</date> by <a href="/about/{{ user.query.get(session.user_id).username }}">{{ user.query.get(session.user_id).username }}</a></p>
 	          <p class="lead">{{ session.description }}</p>
 	        </div>
     	</div>

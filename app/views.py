@@ -48,8 +48,8 @@ def news(id = None):
 	if id is int:
 		news = News.query.get(int(id))
 		user = User.query.get(news.user_id)
-		return render_template('news.html', allnews = allnews, news = news, comments = comments, user = user, title = 'news', ne = 'active')
-	return render_template('news.html', allnews = allnews, title = 'news', ne = 'active')
+		return render_template('news.html', allnews = allnews, news = news, user = user, title = 'news', ne = 'active')
+	return render_template('news.html', allnews = allnews, title = 'news', user = User, ne = 'active')
 
 @app.route('/sessions/')
 @app.route('/sessions/<id>/')
@@ -60,7 +60,7 @@ def sessions(id = None):
 		ss = Session.query.get(int(id))
 		user = User.query.get(ss.user_id)
 		return render_template('sessions.html', sessions = sessions, ss = ss, user = user, title = 'sessions', se = 'active')
-	return render_template('sessions.html', sessions = sessions, title = 'sessions', se = 'active')
+	return render_template('sessions.html', sessions = sessions, title = 'sessions', user = User, se = 'active')
 
 @app.route('/codes/')
 def codes():

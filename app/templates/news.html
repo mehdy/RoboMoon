@@ -5,7 +5,6 @@
 	        <div class="col-md-11">
 	          <h2 class="featurette-heading">{{ news.title }}</h2>
 		  <p>Modified on <date>{{ news.modified.ctime() }}</date> by <a href="/about/{{ user.query.get(news.user_id).username }}">{{ user.query.get(news.user_id).username }}</a></p>
-	          <hr class="featurette-divider">
 	          <p class="lead">{{ news.description }}</p>
 	        </div>
     	</div>

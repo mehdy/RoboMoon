@@ -162,7 +162,6 @@ def admin_users():
 			if not User.query.filter_by(email = form.email.data).first():
 				user.email = form.email.data
 		if form.password.data and form.confirm.data and form.password.data == form.confirm.data:
-			print form.password.data
 			user.password = sha256(form.password.data).hexdigest()
 		if form.website.data:
 			user.website = form.website.data
@@ -180,7 +179,7 @@ def admin_user():
 		user = User(
 			username = form.username.data,
 			email = form.email.data,
-			password = form.password.data)
+			password = sha256(form.password.data).hexdigest())
 		db.session.add(user)
 		db.session.commit()
 	return render_template('admin_user.html', form = form, title = 'codes', us = 'active')

@@ -19,8 +19,8 @@
         <img alt="200x200" src="{{ user.avatar(200) }}" style="width: 200px; height: 200px;">
         <h2>{{ user.username }}</h2><br>
         <a href="mailto:{{ user.email }}"><p>{{ user.email }}</p></a><br>
-        <a href="{{ user.website }}"><p>{{ user.website }}</p></a><br>
-        <p>{{ user.bio }}</p><br>
+        {% if user.website %}<a href="{{ user.website }}"><p>{{ user.website }}</p></a><br>{% endif %}
+         {% if user.bio %}<p>{{ user.bio }}</p><br>{% endif %}
       </div>
       {% endif %}
 

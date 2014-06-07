@@ -9,7 +9,9 @@ body {
   background-color: #0a0a0a;
 }
 
-
+p{
+  white-space: pre-wrap;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */

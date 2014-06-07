@@ -6,6 +6,7 @@ body {
   padding-top: 50px;
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-color: #0a0a0a;
 }
 
 
@@ -32,7 +33,25 @@ body {
   padding-left: 15px;
 }
 
+.navbar-inverse {
+  background-color: #FFFFFF;
+  border: none;
+}
 
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
+color: #fff;
+background-color: #0a0a0a;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-brand:hover{
+  background-color: #a8a8a8;
+  color: #ffffff;
+}
+
+.featurette{
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -40,7 +59,7 @@ body {
 /* Carousel base class */
 .carousel {
   height: 400px;
-  margin-bottom: 60px;
+  margin: 110px 0 95px 0;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -50,7 +69,8 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel .item {
   height: 400px;
-  background-color: lightblue;
+  width: 100%;
+  background-image: url("/static/img/bg.jpg");
 }
 .carousel-inner > .item > img {
   height: 50%;
@@ -146,6 +166,7 @@ body {
 
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
+    //*background-color: white;*/
   }
 
   /* Bump up size of carousel content */

@@ -17,11 +17,16 @@
       {% if user %}
       <div class="user">
         <img alt="200x200" src="{{ user.avatar(200) }}" style="width: 200px; height: 200px;">
-        <h2>{{ user.username }}</h2><br>
-        <a href="mailto:{{ user.email }}"><p>{{ user.email }}</p></a><br>
-        {% if user.website %}<a href="{{ user.website }}"><p>{{ user.website }}</p></a><br>{% endif %}
-         {% if user.bio %}<p>{{ user.bio }}</p><br>{% endif %}
+        <div class="info">
+          <ul>
+            <li><h2>{{ user.username }}</h2></li>
+            <li><a href="mailto:{{ user.email }}"><p>{{ user.email }}</p></a></li>
+            {% if user.website %}<li><a href="{{ user.website }}"><p>{{ user.website }}</p></a></li>{% endif %}
+            {% if user.bio %}<li><p>{{ user.bio }}</p></li>{% endif %}
+          </ul>
       </div>
+        </div>
+
       {% endif %}
 
       <br/>

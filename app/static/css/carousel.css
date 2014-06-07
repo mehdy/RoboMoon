@@ -13,6 +13,15 @@ p{
   white-space: pre-wrap;
 }
 
+.navbar-inverse .navbar-toggle .icon-bar {
+background-color: #333;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+background-color: #a8a8a8;
+}
+
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 

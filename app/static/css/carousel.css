@@ -53,6 +53,11 @@ background-color: #0a0a0a;
   border-radius: 10px;
 }
 
+.row{
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding-top: 50px;
+}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
